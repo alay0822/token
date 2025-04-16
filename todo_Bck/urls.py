@@ -1,8 +1,9 @@
-# todo_Bck/urls.py
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.authtoken import views as drf_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('todo_plss.urls')),  # This includes the URLs from the todo_plss app
+    path('api/', include('todo_plss.urls')),  # your app
+    path('api-token-auth/', drf_views.obtain_auth_token),  # <-- Add this line
 ]
